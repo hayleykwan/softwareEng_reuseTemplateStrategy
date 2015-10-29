@@ -10,28 +10,28 @@ import static org.junit.Assert.fail;
 
 public class FibonacciSequenceTest {
 
-    final Sequence sequence = new Sequence(new FibonacciNumberGenerator());
+    private final Sequence fibonacciSequence = new Sequence(new FibonacciNumberGenerator());
 
     @Test
     public void definesFirstTwoTermsToBeOne() {
 
-        assertThat(sequence.termGenerator.term(0), is(1));
-        assertThat(sequence.termGenerator.term(1), is(1));
+        assertThat(fibonacciSequence.termGenerator.term(0), is(1));
+        assertThat(fibonacciSequence.termGenerator.term(1), is(1));
     }
 
     @Test
     public void definesSubsequentTermsToBeTheSumOfThePreviousTwo() {
 
-        assertThat(sequence.termGenerator.term(2), is(2));
-        assertThat(sequence.termGenerator.term(3), is(3));
-        assertThat(sequence.termGenerator.term(4), is(5));
+        assertThat(fibonacciSequence.termGenerator.term(2), is(2));
+        assertThat(fibonacciSequence.termGenerator.term(3), is(3));
+        assertThat(fibonacciSequence.termGenerator.term(4), is(5));
     }
 
     @Test
     public void isUndefinedForNegativeIndices() {
 
         try {
-            sequence.termGenerator.term(-1);
+            fibonacciSequence.termGenerator.term(-1);
             fail("should have thrown exception");
         } catch (IllegalArgumentException e) {
             assertThat(e.getMessage(), containsString("Not defined for indices < 0"));
@@ -41,7 +41,7 @@ public class FibonacciSequenceTest {
     @Test
     public void canBeIteratedThrough() {
 
-        assertThat(sequence, hasItems(1, 1, 2, 3, 5));
+        assertThat(fibonacciSequence, hasItems(1, 1, 2, 3, 5));
     }
 
 }

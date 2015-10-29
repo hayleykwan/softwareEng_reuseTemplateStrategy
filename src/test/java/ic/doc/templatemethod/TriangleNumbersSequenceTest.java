@@ -10,7 +10,7 @@ import static org.junit.Assert.fail;
 
 public class TriangleNumbersSequenceTest {
 
-    final TriangleNumbersSequence sequence = new TriangleNumbersSequence();
+    private final TriangleNumbersSequence sequence = new TriangleNumbersSequence();
 
     @Test
     public void definesFirstTermToBeOne() {

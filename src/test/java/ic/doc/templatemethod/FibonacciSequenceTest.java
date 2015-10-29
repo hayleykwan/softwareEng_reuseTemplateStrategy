@@ -10,7 +10,7 @@ import static org.junit.Assert.fail;
 
 public class FibonacciSequenceTest {
 
-    final FibonacciSequence sequence = new FibonacciSequence();
+    private final FibonacciSequence sequence = new FibonacciSequence();
 
     @Test
     public void definesFirstTwoTermsToBeOne() {
