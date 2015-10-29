@@ -1,24 +1,16 @@
-package ic.doc.strategy;
+package ic.doc.templatemethod;
 
 import java.util.Iterator;
 
-public class TriangleNumbersSequence implements Iterable<Integer> {
+abstract class Sequence implements Iterable<Integer> {
 
-    public int term(int i) {
-        if (i < 0) {
-            throw new IllegalArgumentException("Not defined for indices < 0");
-        }
-        if (i == 1) {
-            return 1;
-        }
-        return (i + 1)*(i + 2) / 2;
-    }
+    abstract int term(int i);
 
     public Iterator<Integer> iterator() {
         return new SequenceIterator();
     }
 
-    private class SequenceIterator implements Iterator<Integer> {
+    class SequenceIterator implements Iterator<Integer> {
 
         private int i = 0;
 
@@ -37,4 +29,6 @@ public class TriangleNumbersSequence implements Iterable<Integer> {
             throw new UnsupportedOperationException("remove is not implemented");
         }
     }
+
+
 }

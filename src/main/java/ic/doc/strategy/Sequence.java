@@ -2,23 +2,19 @@ package ic.doc.strategy;
 
 import java.util.Iterator;
 
-public class FibonacciSequence implements Iterable<Integer> {
+class Sequence implements Iterable<Integer>  {
 
-    public int term(int i) {
-        if (i < 0) {
-            throw new IllegalArgumentException("Not defined for indices < 0");
-        }
-        if (i < 2) {
-            return 1;
-        }
-        return term(i - 1) + term(i - 2);
+    TermGenerator termGenerator;
+
+    Sequence(TermGenerator termGenerator){
+        this.termGenerator = termGenerator;
     }
 
     public Iterator<Integer> iterator() {
         return new SequenceIterator();
     }
 
-    private class SequenceIterator implements Iterator<Integer> {
+    class SequenceIterator implements Iterator<Integer> {
 
         private int i = 0;
 
@@ -29,7 +25,7 @@ public class FibonacciSequence implements Iterable<Integer> {
 
         @Override
         public Integer next() {
-            return term(i++);
+            return termGenerator.term(i++);
         }
 
         @Override

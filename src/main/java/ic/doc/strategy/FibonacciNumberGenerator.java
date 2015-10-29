@@ -1,6 +1,6 @@
-package ic.doc.templatemethod;
+package ic.doc.strategy;
 
-public class FibonacciSequence extends Sequence {
+public class FibonacciNumberGenerator implements TermGenerator {
 
     public int term(int i) {
         if (i < 0) {
